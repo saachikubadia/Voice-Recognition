@@ -1,1 +1,11 @@
-https://teachablemachine.withgoogle.com/models/ma1QaVunc/
+
+function startClassification(){
+    navigator.mediaDevices.getUserMedia({
+        audio: true
+    });
+    classifier = ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/ma1QaVunc/model.json', modelReady);
+}
+
+function modelReady(){
+    classifier.classify(gotResults);
+}
